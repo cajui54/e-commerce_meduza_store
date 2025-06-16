@@ -30,13 +30,13 @@ const ProductItem = ({ product }: ProductItemProps) => {
 
       <div className="flex flex-col gap-1">
         <p className="truncate">{product.name}</p>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 truncate">
           {product.discountPercentage > 0 ? (
             <>
               <p className="font-semibold">
                 R$: {product.totalPrice.toFixed(2)}
               </p>
-              <p className="text-xs line-through opacity-75">
+              <p className="truncate text-xs line-through opacity-75">
                 R$: {Number(product.basePrice).toFixed(2)}
               </p>
             </>
