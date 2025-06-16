@@ -5,23 +5,21 @@ import { Button } from './button';
 import {
   HomeIcon,
   ListOrderedIcon,
-  LogInIcon,
-  LogOutIcon,
   MenuIcon,
   PercentIcon,
   ShoppingCartIcon,
 } from 'lucide-react';
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from './sheet';
-
-import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 import ButtonsAuth from './buttons-auth';
 import AvatarUser from './avatar-user';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -47,11 +45,17 @@ const Header = () => {
               <PercentIcon />
               Ofertas
             </Button>
-
-            <Button variant="outline" className="w-full justify-start gap-6">
-              <ListOrderedIcon />
-              Catalogo
-            </Button>
+            <SheetClose asChild>
+              <Link href={'/catalog'}>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-6"
+                >
+                  <ListOrderedIcon />
+                  Catálogo
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
