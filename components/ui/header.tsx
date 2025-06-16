@@ -37,14 +37,22 @@ const Header = () => {
           <AvatarUser />
           <div className="mt-4 flex flex-col gap-2">
             <ButtonsAuth />
-            <Button variant="outline" className="w-full justify-start gap-6">
-              <HomeIcon />
-              Início
-            </Button>
+            <SheetClose asChild>
+              <Link href={'/'}>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-6"
+                >
+                  <HomeIcon />
+                  Início
+                </Button>
+              </Link>
+            </SheetClose>
             <Button variant="outline" className="w-full justify-start gap-6">
               <PercentIcon />
               Ofertas
             </Button>
+
             <SheetClose asChild>
               <Link href={'/catalog'}>
                 <Button
@@ -60,9 +68,11 @@ const Header = () => {
         </SheetContent>
       </Sheet>
 
-      <h1 className="text-lg font-semibold">
-        <span className="text-primary">Meduza</span> Store
-      </h1>
+      <Link href="/">
+        <h1 className="text-lg font-semibold">
+          <span className="text-primary">Meduza</span> Store
+        </h1>
+      </Link>
 
       <Button size={'icon'} variant={'outline'}>
         <ShoppingCartIcon />
