@@ -1,4 +1,4 @@
-## Meduza Store
+##Meduza Store
 
 Meduza Store é uma aplicação web full stack de um e-commerce de uma loja online de eletrônicos.
 
