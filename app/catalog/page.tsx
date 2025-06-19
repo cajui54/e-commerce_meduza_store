@@ -4,7 +4,7 @@ import { ShapesIcon } from 'lucide-react';
 import React from 'react';
 import CategoryItem from './_components/category-item';
 
-const CatelogPage = async () => {
+const CatalogPage = async () => {
   const categories = await prismaClient.category.findMany({});
   return (
     <div className="p-5">

@@ -20,6 +20,7 @@ import {
 import ButtonsAuth from './buttons-auth';
 import AvatarUser from './avatar-user';
 import Link from 'next/link';
+import Cart from './cart';
 
 const Header = () => {
   return (
@@ -74,9 +75,16 @@ const Header = () => {
         </h1>
       </Link>
 
-      <Button size={'icon'} variant={'outline'}>
-        <ShoppingCartIcon />
-      </Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button size={'icon'} variant={'outline'}>
+            <ShoppingCartIcon />
+          </Button>
+        </SheetTrigger>
+        <SheetContent>
+          <Cart />
+        </SheetContent>
+      </Sheet>
     </Card>
   );
 };
