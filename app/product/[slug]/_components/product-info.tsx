@@ -1,14 +1,8 @@
 'use client';
 import { ProductWithTotalPrice } from '@/app/helpers/product';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-  ArrowBigDownIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  TruckIcon,
-} from 'lucide-react';
-import { describe } from 'node:test';
+import DiscountBadge from '@/components/ui/discount-badge';
+import { ArrowLeftIcon, ArrowRightIcon, TruckIcon } from 'lucide-react';
 import React from 'react';
 
 interface ProductInfoProps {
@@ -28,14 +22,12 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   };
   return (
     <div className="flex flex-col px-5">
+      <p className="text-xs tracking-wider opacity-75">Novo | 100 vendidos</p>
       <h2 className="text-lg">{product.name}</h2>
       <div className="flex items-center gap-2">
         <p className="text-xl font-bold">R$: {product.totalPrice.toFixed(2)}</p>
         {product.discountPercentage > 0 && (
-          <Badge className="px-2 py-[2px]">
-            <ArrowBigDownIcon size={14} />
-            {product.discountPercentage}%
-          </Badge>
+          <DiscountBadge>{product.discountPercentage}</DiscountBadge>
         )}
       </div>
       {product.discountPercentage > 0 && (
@@ -56,7 +48,9 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         >
           <ArrowLeftIcon size={16} />
         </Button>
+
         <span>{quantity}</span>
+
         <Button
           onClick={handleIncreaseQuantity}
           size={'icon'}
@@ -76,7 +70,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         Adicionar ao carrinho
       </Button>
 
-      <div className="my-5 flex items-center justify-between bg-accent px-5 py-2">
+      <div className="my-5 flex items-center justify-between rounded-lg bg-accent px-5 py-2">
         <div className="flex items-center gap-3">
           <TruckIcon />
           <div className="flex flex-col">
