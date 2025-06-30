@@ -14,3 +14,5 @@ Meduza Store é uma aplicação web full stack de um e-commerce de uma loja onli
 - Next Auth
 
 ### Em desenvolvimento.
+
+[1:10]
