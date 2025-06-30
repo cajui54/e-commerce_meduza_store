@@ -26,4 +26,4 @@ const CatalogPage = async () => {
   );
 };
 
-export default CatelogPage;
+export default CatalogPage;
