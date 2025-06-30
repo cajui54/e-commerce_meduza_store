@@ -12,6 +12,7 @@ Meduza Store é uma aplicação web full stack de um e-commerce de uma loja onli
 - Shadcn/ui
 - Tailwind CSS
 - Next Auth
+- Stripe
 
 ### Em desenvolvimento.
 

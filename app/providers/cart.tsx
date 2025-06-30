@@ -1,5 +1,11 @@
 'use client';
-import React, { createContext, ReactNode, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { ProductWithTotalPrice } from '../helpers/product';
 
 export interface CartProduct extends ProductWithTotalPrice {
@@ -32,9 +38,23 @@ export const CartContext = createContext<ICartContext>({
   total: 0,
   totalDiscount: 0,
 });
-
+const checkSessionStorage = (): CartProduct[] => {
+  if (typeof window !== 'undefined') {
+    const _productsStorage: CartProduct[] = JSON.parse(
+      sessionStorage.getItem('cart-products') || '[]',
+    );
+    return _productsStorage;
+  }
+  return [];
+};
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<CartProduct[]>([]);
+  const [products, setProducts] = useState<CartProduct[]>(
+    checkSessionStorage(),
+  );
+
+  useEffect(() => {
+    sessionStorage.setItem('cart-products', JSON.stringify(products));
+  }, [products]);
 
   const subTotal = useMemo(() => {
     return products.reduce(
