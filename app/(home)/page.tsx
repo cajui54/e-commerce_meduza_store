@@ -3,6 +3,7 @@ import { prismaClient } from '@/lib/prisma';
 import ProductList from '../../components/ui/product-list';
 import SectionTitle from './_components/section-title';
 import PromoBanner from './_components/promo-banner';
+import { LoaderPinwheel } from 'lucide-react';
 
 export default async function Home() {
   const deals = await prismaClient.product.findMany({
