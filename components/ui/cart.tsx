@@ -21,8 +21,8 @@ const Cart = () => {
   const handleFinishPurchaseClick = async () => {
     if (!data?.user) return;
 
-    await createOrder(products, (data?.user as any).id);
-    const checkout = await createCheckout(products);
+    const order = await createOrder(products, (data?.user as any).id);
+    const checkout = await createCheckout(products, order.id);
 
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
