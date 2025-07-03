@@ -11,11 +11,17 @@ import { Separator } from '@/components/ui/separator';
 import { createCheckout } from '@/app/_actions/checkout';
 import { SheetTitle } from './sheet';
 import { loadStripe } from '@stripe/stripe-js';
+import { createOrder } from '@/app/_actions/order';
+import { useSession } from 'next-auth/react';
 
 const Cart = () => {
+  const { data } = useSession();
   const { products, subTotal, total, totalDiscount } = useContext(CartContext);
 
   const handleFinishPurchaseClick = async () => {
+    if (!data?.user) return;
+
+    await createOrder(products, (data?.user as any).id);
     const checkout = await createCheckout(products);
 
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
