@@ -16,7 +16,11 @@ const OrderPage = async () => {
       userId: (user as any).id,
     },
     include: {
-      orderProducts: true,
+      orderProducts: {
+        include: {
+          product: true,
+        },
+      },
     },
   });
 
@@ -30,7 +34,7 @@ const OrderPage = async () => {
         Meus Pedidos
       </Badge>
 
-      <div className="flex flex-col gap-5">
+      <div className="mt-4 flex flex-col gap-5">
         {orders.length > 0 &&
           orders.map((order) => <OrderItems key={order.id} order={order} />)}
       </div>
