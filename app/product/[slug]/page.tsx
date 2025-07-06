@@ -32,11 +32,11 @@ const ProductDetailsPage = async ({ params }: ProductDetailsPageProps) => {
 
   if (!product) return null;
   return (
-    <div className="flex flex-col gap-4 pb-8">
+    <div className="mt-6 flex w-[900px] flex-col gap-4 pb-8 pl-8">
       <ProductImages imageUrls={product.imageUrls} name={product.name} />
       <ProductInfo product={computeProductTotalPrice(product)} />
 
-      <div className="space-y-3">
+      <div className="lg: space-y-3">
         <SectionTitle>Produtos Recomendados: </SectionTitle>
         <ProductList products={product.category.products} />
       </div>

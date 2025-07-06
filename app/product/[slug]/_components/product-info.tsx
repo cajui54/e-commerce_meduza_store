@@ -26,7 +26,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
     });
   };
   return (
-    <div className="flex flex-col px-5">
+    <div className="flex flex-col px-5 lg:w-[600px]">
       <p className="text-xs tracking-wider opacity-75">Novo | 100 vendidos</p>
       <h2 className="text-lg">{product.name}</h2>
       <div className="flex items-center gap-2">

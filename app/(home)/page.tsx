@@ -30,7 +30,7 @@ export default async function Home() {
     },
   });
   return (
-    <main className="py-8">
+    <main className="py-8 lg:ml-7 lg:w-[900px]">
       <PromoBanner
         src={'/banner-home-01.png'}
         alt="até 55% de desconto só esse mês"
