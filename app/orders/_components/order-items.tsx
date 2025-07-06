@@ -12,6 +12,7 @@ import { format } from 'date-fns';
 import OrderProductItem from './order-products-item';
 import { Separator } from '@/components/ui/separator';
 import { computeProductTotalPrice } from '@/app/helpers/product';
+import { getOrderStatus } from '../helpers/status';
 
 interface OrderItemProps {
   order: Prisma.OrderGetPayload<{
@@ -25,9 +26,6 @@ interface OrderItemProps {
   }>;
 }
 const OrderItems = ({ order }: OrderItemProps) => {
-  const checkPayment = (type: OrderStatus) => {
-    return type === 'PAYMENT_CONFIRMED' ? 'Pago' : 'Aguardando Pagamento';
-  };
   const subtotal = useMemo(() => {
     return order.orderProducts.reduce(
       (acc, orderProduct) =>
@@ -61,7 +59,7 @@ const OrderItems = ({ order }: OrderItemProps) => {
                 <div className="font-bold">
                   <p>Status</p>
                   <span className="text-primary">
-                    {checkPayment(order.status)}
+                    {getOrderStatus(order.status)}
                   </span>
                 </div>
 
