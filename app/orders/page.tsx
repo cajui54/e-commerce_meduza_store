@@ -8,13 +8,13 @@ import OrderItems from './_components/order-items';
 import BadgeTitleRadius from '@/components/badge-title-radius';
 
 const OrderPage = async () => {
-  const user = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-  if (!user) return <p>Access Denied</p>;
+  if (!session) return <p>Access Denied</p>;
 
   const orders = await prismaClient.order.findMany({
     where: {
-      userId: (user as any).id,
+      userId: session.user.id,
     },
     include: {
       orderProducts: {
