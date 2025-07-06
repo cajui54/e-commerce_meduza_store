@@ -5,6 +5,7 @@ import { PackageSearchIcon } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 import React from 'react';
 import OrderItems from './_components/order-items';
+import BadgeTitleRadius from '@/components/badge-title-radius';
 
 const OrderPage = async () => {
   const user = await getServerSession(authOptions);
@@ -25,14 +26,11 @@ const OrderPage = async () => {
   });
 
   return (
-    <div className="p-5">
-      <Badge
-        variant={'outline'}
-        className="gap-1 border-2 border-gray-400 px-3 py-[0.375rem] text-base uppercase"
-      >
+    <div className="h-full p-5">
+      <BadgeTitleRadius>
         <PackageSearchIcon size={16} />
         Meus Pedidos
-      </Badge>
+      </BadgeTitleRadius>
 
       <div className="mt-4 flex flex-col gap-5">
         {orders.length > 0 &&

@@ -13,6 +13,7 @@ import OrderProductItem from './order-products-item';
 import { Separator } from '@/components/ui/separator';
 import { computeProductTotalPrice } from '@/app/helpers/product';
 import { getOrderStatus } from '../helpers/status';
+import { formatCurrency } from '@/app/helpers/currency-convert';
 
 interface OrderItemProps {
   order: Prisma.OrderGetPayload<{
@@ -47,7 +48,9 @@ const OrderItems = ({ order }: OrderItemProps) => {
         <AccordionItem value={order.id}>
           <AccordionTrigger>
             <div className="flex flex-col gap-1 text-left">
-              <p>Pedidos com {order.orderProducts.length} produtos(s)</p>
+              <p className="font-bold uppercase">
+                Pedidos com {order.orderProducts.length} produtos(s)
+              </p>
               <p className="text-xs italic opacity-60">
                 Feito em {format(order.createdAt, "dd/MM/y 'às' HH:mm")}
               </p>
@@ -85,7 +88,7 @@ const OrderItems = ({ order }: OrderItemProps) => {
                 <Separator />
                 <div className="flex w-full justify-between">
                   <p>Subtotal</p>
-                  <p>R$:{subtotal.toFixed(2)}</p>
+                  <p>{formatCurrency(subtotal)}</p>
                 </div>
                 <Separator />
                 <div className="flex w-full justify-between">
@@ -95,12 +98,12 @@ const OrderItems = ({ order }: OrderItemProps) => {
                 <Separator />
                 <div className="flex w-full justify-between">
                   <p>Descontos</p>
-                  <p>- R$: {totalDiscounts.toFixed(2)}</p>
+                  <p>-{formatCurrency(totalDiscounts)}</p>
                 </div>
                 <Separator />
                 <div className="flex w-full justify-between text-sm font-bold">
                   <p>Total</p>
-                  <p>R$:{total.toFixed(2)}</p>
+                  <p>{formatCurrency(total)}</p>
                 </div>
               </div>
             </div>
