@@ -1,7 +1,7 @@
 import ProductItem from '@/components/ui/product-item';
 import { prismaClient } from '@/lib/prisma';
 import React from 'react';
-import { computeProductTotalPrice } from '../helpers/product';
+import { computeProductTotalPrice } from '../../helpers/product';
 import { PercentIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 

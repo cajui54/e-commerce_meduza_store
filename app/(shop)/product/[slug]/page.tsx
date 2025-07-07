@@ -4,7 +4,7 @@ import ProductImages from './_components/product-images';
 import ProductInfo from './_components/product-info';
 import { computeProductTotalPrice } from '@/app/helpers/product';
 import ProductList from '@/components/ui/product-list';
-import SectionTitle from '@/app/(home)/_components/section-title';
+import SectionTitle from '../../(home)/_components/section-title';
 
 interface ProductDetailsPageProps {
   params: {
