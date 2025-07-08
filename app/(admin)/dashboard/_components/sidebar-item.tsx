@@ -19,7 +19,7 @@ const SidebarItem = ({ text, path, icon }: SidebarItemProps) => {
     <Button
       variant={'outline'}
       asChild
-      className={`${isAtive(path) && '!bg-pink-400'} w-full justify-start`}
+      className={`${isAtive(path) && 'bg-primary'} w-full justify-start`}
       onClick={() => console.log('xxx')}
     >
       <Link href={path}>
