@@ -3,7 +3,6 @@ import { computeProductTotalPrice } from '@/app/helpers/product';
 import { Badge } from '@/components/ui/badge';
 import ProductItem from '@/components/ui/product-item';
 import { prismaClient } from '@/lib/prisma';
-import { ShapesIcon } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import React from 'react';
 interface CategoryPageProps {
