@@ -4,7 +4,7 @@ import { prismaClient } from '@/lib/prisma';
 import { PackageSearchIcon } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 import React from 'react';
-import OrderItems from './_components/order-items';
+import OrderItems from '../../../components/order-items';
 import BadgeTitleRadius from '@/components/badge-title-radius';
 
 const OrderPage = async () => {

@@ -1,6 +1,6 @@
 'use client';
 import { Card } from '@/components/ui/card';
-import { OrderStatus, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import React, { useMemo } from 'react';
 import {
   Accordion,
@@ -12,7 +12,7 @@ import { format } from 'date-fns';
 import OrderProductItem from './order-products-item';
 import { Separator } from '@/components/ui/separator';
 import { computeProductTotalPrice } from '@/app/helpers/product';
-import { getOrderStatus } from '../helpers/status';
+import { getOrderStatus } from '../app/(shop)/orders/helpers/status';
 import { formatCurrency } from '@/app/helpers/currency-convert';
 
 interface OrderItemProps {

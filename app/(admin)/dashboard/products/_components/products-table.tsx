@@ -20,7 +20,7 @@ interface ProductsTableProps {
 }
 const ProductsTable = ({ products }: ProductsTableProps) => {
   return (
-    <div className="overflow-y-auto scroll-smooth">
+    <div className="scrollbar overflow-y-auto scroll-smooth">
       <Table>
         <TableHeader>
           <TableRow className="text-center">
