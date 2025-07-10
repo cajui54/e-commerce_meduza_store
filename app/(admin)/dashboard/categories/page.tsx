@@ -5,6 +5,7 @@ import { computeProductTotalPrice } from '@/app/helpers/product';
 import BadgeTitleRadius from '@/components/badge-title-radius';
 import { ListOrderedIcon, PlusIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import CategoriesTable from './_components/categories-table';
 
 const CategoriesPage = async () => {
   const categories = await prismaClient.category.findMany({
@@ -34,6 +35,8 @@ const CategoriesPage = async () => {
           Adicionar Produto
         </Button>
       </div>
+
+      <CategoriesTable categories={categories} />
     </div>
   );
 };
