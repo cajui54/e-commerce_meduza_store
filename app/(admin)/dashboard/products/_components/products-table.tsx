@@ -1,3 +1,4 @@
+import { formatCurrency } from '@/app/helpers/currency-convert';
 import { ProductWithTotalPrice } from '@/app/helpers/product';
 import {
   Table,
@@ -36,8 +37,10 @@ const ProductsTable = ({ products }: ProductsTableProps) => {
               <TableRow key={product.id}>
                 <TableCell>{product.name}</TableCell>
                 <TableCell>{product.category.name}</TableCell>
-                <TableCell>{product.totalPrice}</TableCell>
-                <TableCell>{Number(product.basePrice)}</TableCell>
+                <TableCell>{formatCurrency(product.totalPrice)}</TableCell>
+                <TableCell>
+                  {formatCurrency(Number(product.basePrice))}
+                </TableCell>
                 <TableCell>500</TableCell>
               </TableRow>
             );
