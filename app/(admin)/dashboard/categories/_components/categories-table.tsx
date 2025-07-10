@@ -22,7 +22,7 @@ interface CategoriesTableProps {
 }
 const CategoriesTable = ({ categories }: CategoriesTableProps) => {
   return (
-    <div>
+    <div className="overflow-y-auto">
       <Table>
         <TableHeader>
           <TableRow className="text-center">
